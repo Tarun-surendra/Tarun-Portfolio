@@ -1,20 +1,14 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
-import path from "path";
+import { defineConfig } from "vite"
+import react from "@vitejs/plugin-react"
+import path from "path"
 
-// https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
-  server: {
-    host: "::",
-    port: 8080,
-  },
-  plugins: [
-    react(),
-    // Remove componentTagger() since it's undefined
-  ],
+export default defineConfig({
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-}));
+  // 👇 Important for GitHub Pages
+  base: "/tarun-mothukuru-portfolio/", 
+})
